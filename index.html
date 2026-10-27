@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS2026</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #101828, #344054);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            color: #101828;
+            width: 340px;
+            max-width: calc(100% - 64px);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        p {
+            text-align: center;
+            color: #667085;
+        }
+
+        label {
+            display: block;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #d0d5dd;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: 0;
+            border-radius: 8px;
+            background: #175cd3;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <h1>SSS2026</h1>
+        <p>Il mio primo sito eseguito con Docker e Nginx.</p>
+
+        <form id="loginForm">
+            <label for="username">Nome utente</label>
+            <input id="username" type="text" placeholder="Inserisci il nome" required>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Inserisci la password" required>
+
+            <button type="submit">Accedi</button>
+        </form>
+
+        <p id="message" role="status"></p>
+    </main>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const message = document.getElementById("message");
+
+            if (username.length < 3) {
+                message.textContent = "Il nome utente deve contenere almeno 3 caratteri.";
+                message.style.color = "#b42318";
+                return;
+            }
+
+            message.textContent = "Ciao " + username + "! Il modulo funziona.";
+            message.style.color = "#067647";
+        });
+    </script>
+</body>
+</html>
